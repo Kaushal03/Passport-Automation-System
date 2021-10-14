@@ -29,7 +29,7 @@ def send():
     try:
         s = smtplib.SMTP("smtp.gmail.com" , 587)  # 587 is a port number 
         s.starttls()
-        s.login("ksprojectcode@gmail.com" , "coco789@")
+        s.login("mail id" , "password")
         otp = random.randint(1000, 9999)
         otp = str(otp)
         s.sendmail("sender_email" , email_entry.get() , otp)
