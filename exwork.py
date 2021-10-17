@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import QDialog, QApplication, QMessageBox
 from PyQt5.uic import loadUi
 from pymongo import MongoClient
 cluster= MongoClient("mongodb+srv://projectadmin:projectadmin123@cluster0.rkm3b.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-db =cluster["new_user"]
+db=cluster["new_user"]
 class Login(QDialog):
     def __init__(self):
         super(Login,self).__init__()
@@ -19,16 +19,21 @@ class Login(QDialog):
     def loginfunction(self):
         username= self.username.text()
         password= self.password.text()
-        db=cluster["user"]
-        collection=db["login_details"]
-        dict={"username" : username,"password" :password}
+        collection=db["verify_login"]
+        dict={"username" : username,"password" : password}
         QMessageBox.information(self," ","Successfully logged-in ")
-        collection.insert(dict)
-        print(self," ","Successfully logged in as: ",username,"and password: ",password)
+        res1=db.collection.find()
+        res2=db.collection.find()
+        if res1 == 'username' and res2 == 'password' :
+            collection.insert(dict)
+            print(self," ","Successfully logged in as: ",username,"and password: ",password)
+        else:
+            print("username not in database or username and password does not match")
+            print("Please sign up first")
     
 
     def gotocreate(self):
-        collection=db["signup_details"]
+        
         signup=Signup()
         widget.addWidget(signup)
         widget.setCurrentIndex(widget.currentIndex()+1)
