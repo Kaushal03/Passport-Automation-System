@@ -7,7 +7,7 @@ from PyQt5.uic import loadUi
 import mysql.connector
 from mysql.connector import errorcode
 
-conn = mysql.connector.connect(user='root', password='india123abcd$',
+conn = mysql.connector.connect(user='root', password='password',
                               host='127.0.0.1',
                               database='passport')
 cursor = conn.cursor()
