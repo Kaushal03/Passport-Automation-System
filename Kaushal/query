@@ -1,6 +1,0 @@
-CREATE TABLE passport.user (email varchar(40) not null  primary key ,mobileno varchar(10) not null,username varchar(20) not null,password varchar(20) not null,confirm_password varchar(20) not null);
-
-CREATE TABLE passport.user_register(fname varchar(20) not null ,lname varchar(20) not null,
-username varchar(20) not null primary key,dob varchar(10)  not null ,gender varchar(10) ,mobileno varchar(10) not null , email varchar(30) not null,nationality varchar(10) not null,martialstatus varchar(10) not null,aadhar varchar(20) not null , 
-pan varchar(20) not null ,driving varchar(20) not null , _10mark varchar(20) not null , _12mark varchar(20) not null ,checkstatus varchar(50),applicantid int(11) not null);
-
